@@ -1,2 +1,3 @@
 # school_project
-simple school projects
+
+project v1.c is a student management system
