@@ -24,6 +24,7 @@ int is_id_exist(student* p, int id){
     if(!indice){
         return 0;
     }
+    return 0;
 }
 
 float note_calcule(int i, student* p){// take 4 markes of the 4 modules and return the total
@@ -163,19 +164,22 @@ void modify(student* p){
     }
 }
 
+
 int main(){
-    student s_list[200]; // table of 200 student 
+    //student s_list[200]; // table of 200 student
+    student *s_list;
+    s_list =(student*) calloc(200, sizeof(student));
     int choice;
     do{
-        printf("\n1) Ajouter plusieurs étudiants \n");
-        printf("2) Ajouter un seule étudiant\n");
-        printf("3) Afficher tout les étudiants\n");
-        printf("4) Afficher toutes les informations de tous les étudiants\n");
-        printf("5) Rechercher par prenom\n");
-        printf("6) Rechercher par nom de famille\n");
-        printf("7) Rechercher par identifiant\n");
-        printf("8) Trier tous les étudiants\n");
-        printf("9) Modifier les informations d'un étudiant");
+        printf("\n1) Ajouter des étudiants \n");
+        printf("2) Afficher tout les étudiants\n");
+        printf("3) Afficher toutes les informations de tous les étudiants\n");
+        printf("4) Rechercher par prenom\n");
+        printf("5) Rechercher par nom de famille\n");
+        printf("6) Rechercher par identifiant\n");
+        printf("7) Trier tous les étudiants\n");
+        printf("8) Modifier les informations d'un étudiant\n");
+        printf("9) Supprimer un étudiants\n\n\n");
         printf("0) EXIT\n");
         scanf("%d", &choice);
 
@@ -185,33 +189,29 @@ int main(){
                 add_student(s_list, 0);
                 break;
             case 2:{
-                add_student(s_list,1);
-                break;}
-            case 3:{
                 show_all_student(s_list, 0);
                 break;}
-            case 4:{
+            case 3:{
                 show_all_student(s_list, 1);
-                system("pause");
                 break;}
-            case 5:{
+            case 4:{
                 search_student(s_list, 0);
                 break;
             }
-            case 6:{
+            case 5:{
                 search_student(s_list, 1);
                 break;
             }
-            case 7:{
+            case 6:{
                 search_student(s_list, 2);
                 break;
             }
-            case 8:{
+            case 7:{
                 sort_student(s_list);
                 show_all_student(s_list, 0);
                 break;
             }
-            case 9:{
+            case 8:{
                 modify(s_list);
                 break;
             }
